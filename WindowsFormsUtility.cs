@@ -4,10 +4,10 @@ namespace CPUWindowsFormFrameWork
 {
     public class WindowsFormsUtility
     {
-        public static void SetListBinding(ComboBox lst, DataTable sourcedt, DataTable targetdt, string tablename, string primarykey = "")
+        public static void SetListBinding(ComboBox lst, DataTable sourcedt, DataTable targetdt, string tablename)
         {
             lst.DataSource = sourcedt;
-            lst.ValueMember = primarykey != "" ? primarykey : tablename + "Id";
+            lst.ValueMember = tablename + "Id";
             lst.DisplayMember = lst.Name[3..];
 
             lst.DataBindings.Add("SelectedValue", targetdt, lst.ValueMember, false, DataSourceUpdateMode.OnPropertyChanged);
